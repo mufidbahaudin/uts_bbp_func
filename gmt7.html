@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jam Digital Dunia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Lunasima:wght@700&family=Quicksand:wght@400;500;700&family=Roboto+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    /* CSS */
+    * {
+        color: white;
+        text-align: center;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 700;
+    }
+
+    body {
+        background-color: black;
+        margin: 10% auto;
+        background-image: url(jakarta.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    #jam {
+        font-size: 60px;
+        font-weight: bold;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px white;
+    }
+
+    .box {
+        width: 400px;
+        border: 4px solid transparent;
+        border-radius: 20px;
+        padding: 20px;
+        margin-left: 33%;
+    }
+
+
+    @media screen and (max-width: 1024px) {
+        body {
+            margin: 20px auto;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url(jakarta.jpeg);
+            height: 900px;
+
+        }
+
+        .box {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #jam {
+            font-size: 50px;
+            width: 70%;
+            margin-left: 14%;
+        }
+
+        .content {
+            margin-top: 50px;
+        }
+    }
+</style>
+
+<body>
+    <!-- HTML -->
+    <div class="content">
+        <audio autoplay loop>
+            <source src="y2mate.com - 1 Minute Timer Lofi.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h1>GMT +7</h1>
+        <h2>Jakarta, Bangkok, Hanoi, Phnom Penh</h2>
+        <div class="box">
+            <div id="jam"></div>
+        </div>
+    </div>
+    </div>
+    <script>
+        // JAVASCRIPT
+        function updateJam() {
+            var waktuSekarang = new Date();
+            waktuSekarang.setHours(waktuSekarang.getHours()); // 
+            var jam = waktuSekarang.getHours();
+            var menit = waktuSekarang.getMinutes();
+            var detik = waktuSekarang.getSeconds();
+            var hari = waktuSekarang.getDay();
+
+            var namaHari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+
+            jam = (jam < 10) ? "0" + jam : jam;
+            menit = (menit < 10) ? "0" + menit : menit;
+            detik = (detik < 10) ? "0" + detik : detik;
+
+            var jamDigital = jam + ":" + menit + ":" + detik;
+            var namaHariString = namaHari[hari];
+
+            document.getElementById("jam").innerHTML = namaHariString + "<br> " + jamDigital;
+        }
+
+        setInterval(updateJam, 1000);
+
+        updateJam();
+    </script>
+</body>
+
+</html>
